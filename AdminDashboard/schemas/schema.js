@@ -1,12 +1,14 @@
 import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
-import pet from './pet' // import the file you just made
+import hen from './pet' // import the file you just made
+import questions from "./questions";
 
 export default createSchema({
   name: "default",
-  types: schemaTypes.concat([
-		pet, // add the document type to this array
+  types: schemaTypes.concat([ 
+    hen,
+    questions  // add the document type to this array
   ]),
 });
 

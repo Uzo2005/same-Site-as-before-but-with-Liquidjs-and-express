@@ -1,5 +1,5 @@
 export default {
-    name: 'pet',
+    name: 'Pet',
     type: 'document',
       title: 'Pet',
     fields: [
