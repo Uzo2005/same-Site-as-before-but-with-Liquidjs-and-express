@@ -1,3 +1,6 @@
+
+
+
 const startingminutes = 65;
 let time = startingminutes * 60;
 
@@ -78,3 +81,12 @@ closeModal.addEventListener('click', () => {
 }
 
 setTimeout("noReturn()", 3902000);*/
+
+
+
+
+
+
+
+
+

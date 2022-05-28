@@ -75,6 +75,26 @@ body{
     user-select: none;
     cursor: pointer;
 }
+/*Just In case I need a single page for both questions and answers*/
+/* .maths{
+    display: flex;
+    height: calc(100vh - 160px);
+    margin: 20px;
+    cursor: pointer;
+}
+.maths_section{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: rgb(210, 231, 245);    
+    border-radius: 5px;
+    padding: 20px;
+    line-height: 30px;
+    text-align: justify;
+    contain: content;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+} */
 /*STYLING THE PASSAGE SECTION*/
 .reading_section .passage_section{
     background: rgb(210, 231, 245);    
@@ -86,6 +106,7 @@ body{
     contain: content;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    
 }
 /*STYLING THE QUESTION SECTION*/
 .reading_section .question_section{

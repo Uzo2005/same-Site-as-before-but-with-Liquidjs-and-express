@@ -73,29 +73,30 @@ body{
     align-items: center;
     justify-content: center;
     margin: 15px;
-    height: 37vh;
+    height: 38vh;
     border: none;
     border-radius: 5px;
     background: rgb(197, 226, 240);
     cursor: pointer;
     user-select: none;
 }
-
-textarea{
-    resize: none;
-    border: 1px solid rgb(110, 110, 241);
-    border-radius: 5px;
-    outline: 1px solid silver;
+.grid{
+    outline: none;
     height: 40px;
-    width: 65px;
-    padding-top: 6px;
-    padding-left: 14px;
-    margin-right: 0;
-    margin-bottom: 7px;
-    line-height: 30px;
-    font-size: 15px;
-    font-weight: 600;
+    width: 120px;
+    text-align: center;
+    border-radius: 3px;
 }
+.input-valid{
+    background: #ccffcc;
+    border: 2px solid #e6ffe6;
+}
+.input-error{
+    outline: none;
+    background: #ff3333;
+    border: 2px solid #ff6666;
+}
+
 
 /*STYLING THE FOOOTER SECTION*/
 .footer_section{
