@@ -18,8 +18,7 @@ body{
 
 .form{
     contain: content;
-    height: 80%;
-    padding: 40px 40px 40px 40px;
+    padding: 20px;
     border-radius: 40px;
     background-color: lightgray;
     box-shadow: 13px 13px 20px lightsteelblue,
@@ -33,19 +32,16 @@ body{
     position: absolute;
     top: 5%;
     left: calc(50% - 50px);
-    box-shadow: 0px 0px 2px #5f5f5f,
-    0px 0px 5px #ecf0f3, 8px 8px 15px chocolate,
-    -8px -8px 15px chocolate;
     contain: content;
     user-select: none;
 }
 .form .form_title{
     font-size: 28px;
     font-weight: 600;
-    color: black;
+    color: rgb(80, 80, 241);
     text-align: center;
     margin-top: 90px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     letter-spacing: 0.5px;
     padding-top: 24px;
     user-select: none;
@@ -54,9 +50,9 @@ body{
     text-align: center;
     font-size: 10px;
     font-weight: 700;
-    color: steelblue;
-    padding-top: 7px;
-    margin-bottom: 20px;
+    color: rgb(248, 104, 104);
+    padding-top: 5px;
+    margin-bottom: 15px;
     letter-spacing: 0.5px;
     user-select: none;
 } 
@@ -72,7 +68,7 @@ body{
     color: #555;
     padding: 20px 10px 20px 5px;
 }
-.name,.email{
+.name,.email,.password{
     width: 100%;
     margin-bottom: 30px;
     border-radius: 25px;
@@ -85,7 +81,7 @@ body{
 ::placeholder{
     font-size: 15px;
     font-weight: 700;
-    color: steelblue;
+    color: rgb(80, 80, 241);
     text-align: center;
 }
 #lets_go{
@@ -108,10 +104,9 @@ body{
 #lets_go:hover{
     background-color: lightskyblue;
     color: steelblue;
-    border: 1px solid steelblue;
 }
-#lets_go:active{
+/* #lets_go:active{
     background-color: skyblue;
     color: white;
-}
+} */
 
