@@ -7,4 +7,4 @@ const sanityClient = require("@sanity/client")
         useCdn: false, // `false` if you want to ensure fresh data
         });
 
-module.exports = client       
+module.exports = client      
