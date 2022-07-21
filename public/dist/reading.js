@@ -778,9 +778,20 @@ eval("\n\nvar required = __webpack_require__(/*! requires-port */ \"./node_modul
 /*!******************************************************!*\
   !*** ./public/English/English Reading page/index.js ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("\r\nconst sanityClient = __webpack_require__(/*! @sanity/client */ \"./node_modules/@sanity/client/lib/sanityClient.js\")\r\n        const client = sanityClient({\r\n        projectId: '6hgz95se',\r\n        dataset: 'production',\r\n        apiVersion: '2021-10-21', // use current UTC date - see \"specifying API version\"!\r\n        // token: 'sanity-auth-token', // or leave blank for unauthenticated usage\r\n        useCdn: true, // `false` if you want to ensure fresh data\r\n        })\r\n\r\n        const query = '*[_type == \"reading\" ]{passage1{whatWillBeRead[]{asset->{url}}}}'\r\n        // const params = {minSeats: 2}\r\n\r\n        client.fetch(query)\r\n        .then((res) => {\r\n                const imageURL = res[0].passage1.whatWillBeRead;\r\n                const URL = imageURL.map((pic) => {\r\n                        return pic.asset.url\r\n                })\r\n                return URL\r\n        })\r\n        .then((URL) => {\r\n                const question = document.querySelector('.yeah');\r\n                URL.forEach((url) => {\r\n                        const Image = document.createElement('img');\r\n                        Image.src = url\r\n                        question.appendChild(Image);\r\n                })\r\n                \r\n        })\r\n       \n\n//# sourceURL=webpack://sat-mock-test-site/./public/English/English_Reading_page/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_sanityClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../js/sanityClient */ \"./public/js/sanityClient.js\");\n/* harmony import */ var _js_sanityClient__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_sanityClient__WEBPACK_IMPORTED_MODULE_0__);\n\r\n// const client = require('../../js/sanityClient')\r\n///<reference lib = \"dom\"/>\r\n\r\nconst questionQuery = '*[_type == \"reading\"]{passage1{questions}}'\r\n\r\n_js_sanityClient__WEBPACK_IMPORTED_MODULE_0__.client.fetch(questionQuery)\r\n.then((res) => {\r\n        const questionOptionObject = res[0].passage1.questions\r\n        return questionOptionObject\r\n\r\n        //I will use a for loop here which will transverse the whole question object array returned above \r\n        //and the next query would use the i index notation instead of actual numbers\r\n})\r\n.then((questionOptionObject) => {\r\n        for(i=0; i < questionOptionObject.length; i++){\r\n                let QUESTION = questionOptionObject[i].newQuestion;\r\n                let OPTIONS = questionOptionObject[i].options;\r\n\r\n                const renderQuestionAndOptions = (question,options) => {\r\n                        const questionText = document.createElement('h5');\r\n                                questionText.innerText =  question;\r\n                        const template = document.querySelector('.questions');\r\n                        \r\n                        template.append(questionText);\r\n        \r\n                        const radioOptions = options.map((option) => {\r\n                                const optionsText = document.createElement('label');\r\n                                const span = document.createElement('span');\r\n                                optionsText.appendChild(span)\r\n                                        optionsText.htmlFor = option;\r\n                                        span.innerText = option;\r\n                                        span.classList.add('options');\r\n                                        const optionsRadio = document.createElement('input');\r\n                                                optionsRadio.type = 'radio';\r\n                                                optionsRadio.name = question;\r\n                                                optionsRadio.value = option;\r\n                                        const br = document.createElement('br');\r\n                                        template.append(optionsRadio,optionsText,br)\r\n                        });               \r\n                }        \r\n        \r\n                renderQuestionAndOptions(QUESTION, OPTIONS);\r\n                \r\n                \r\n        }\r\n        \r\n});\r\n\r\nconst PassageQuery = '*[_type == \"reading\" ]{passage1{whatWillBeRead[]{asset->{url}}}}'\r\n\r\n\r\n_js_sanityClient__WEBPACK_IMPORTED_MODULE_0__.client.fetch(PassageQuery)\r\n.then((res) => {\r\n        const imageURL = res[0].passage1.whatWillBeRead;\r\n        const URL = imageURL.map((pic) => {\r\n                return pic.asset.url\r\n        })\r\n        return URL\r\n})\r\n.then((URL) => {\r\n        const question = document.querySelector('.passages');\r\n        URL.forEach((url) => {\r\n                const Image = document.createElement('img');\r\n                Image.src = url\r\n                question.appendChild(Image);\r\n        })\r\n        \r\n});\r\n\r\n\r\n\n\n//# sourceURL=webpack://sat-mock-test-site/./public/English/English_Reading_page/index.js?");
+
+/***/ }),
+
+/***/ "./public/js/sanityClient.js":
+/*!***********************************!*\
+  !*** ./public/js/sanityClient.js ***!
+  \***********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const sanityClient = __webpack_require__(/*! @sanity/client */ \"./node_modules/@sanity/client/lib/sanityClient.js\")\r\n        const client = sanityClient({\r\n        projectId: '6hgz95se',\r\n        dataset: 'production',\r\n        apiVersion: '2021-10-21', // use current UTC date - see \"specifying API version\"!\r\n        // token: 'sanity-auth-token', // or leave blank for unauthenticated usage\r\n        useCdn: false, // `false` if you want to ensure fresh data\r\n        });\r\n\r\nmodule.exports = client       \n\n//# sourceURL=webpack://sat-mock-test-site/./public/js/sanityClient.js?");
 
 /***/ })
 
@@ -811,6 +822,30 @@ eval("\r\nconst sanityClient = __webpack_require__(/*! @sanity/client */ \"./nod
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -821,6 +856,22 @@ eval("\r\nconst sanityClient = __webpack_require__(/*! @sanity/client */ \"./nod
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /************************************************************************/
