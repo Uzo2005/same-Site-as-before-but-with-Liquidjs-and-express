@@ -222,3 +222,7 @@ body{
     font-size: 10px;
     background-color: skyblue;
 }
+
+#hidden {
+    display: none;
+}

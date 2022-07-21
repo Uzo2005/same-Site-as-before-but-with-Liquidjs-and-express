@@ -1,6 +1,7 @@
+const maxTime = document.querySelector('#countdown_minutes').textContent;
 
-/// <reference lib = "dom"/>
-const startingminutes = 25;
+
+const startingminutes = maxTime;
 let time = startingminutes * 60;
 
 
@@ -8,7 +9,7 @@ const clock = document.getElementById('clock');
 const countdown = document.getElementById('countdown_minutes');
 const counts = document.getElementById('countdown_seconds');
 
-
+//Time countdown
 setInterval(updateCountdown_minutes, 1000)
 
 function updateCountdown_minutes() {
@@ -21,28 +22,32 @@ function updateCountdown_minutes() {
   countdown.innerHTML = `${minutes}`;
   counts.innerHTML = `${seconds}`;
   time--;
+//Changing Timer Colour
+  const clockBgColours = ["red","#bfff80","#dfff80","#ffff80","#ffdf80","#ff4000","#ff0000"]
+  const clockIntervalDigits = []
 
-  if(minutes === 25){
-    clock.style.background = "#80ff80"
-  }else if(minutes === 20) {
-    clock.style.background = "#bfff80"
-  }else if(minutes === 16) {
-    clock.style.background = "#dfff80"
-  }else if(minutes === 12) {
-    clock.style.background = "#ffff80"
-  }else if(minutes === 8) {
-    clock.style.background = "#ffdf80"
-  }else if(minutes === 5) {
-    clock.style.background = "#ff4000"
-  }else if(minutes === 2) {
-    clock.style.background = "#ff0000"
+  for(i=1; i<clockBgColours.length-1; i++){
+    let intervals = (document.querySelector('#hidden').textContent / clockBgColours.length)*i;
+    const intervalDigit = Math.floor(document.querySelector('#hidden').textContent - intervals);
+    
+    clockIntervalDigits.push(intervalDigit)
   }
+  for(i=0; i<clockIntervalDigits.length; i++){
+   if(minutes === clockIntervalDigits[i]){
+    clock.style.background = clockBgColours[i]
+   }
+  }
+  
 
+  
+  
   //Trying to write a better redirect page code:)
-  if(minutes==0 && seconds==0){
-    window.location = "../../instruction pages/after MathsNoCalc/mathsCalc_instructions.html"
-  }
+    if(minutes==0 && seconds==0){
+      window.location = "../../instruction pages/after reading/writing_instructions.html"
+    }
+
 }
+
 
 const modal      = document.querySelector("#modal");
 const openModal  = document.querySelector(".skip");
@@ -55,20 +60,35 @@ closeModal.addEventListener('click', () => {
   modal.close();
 })
 
+
+
+
+
+
+
+// //WHEN TIME IS UP...({My wrong redirect code, leaving it here as a reminder of how little I knew when I began})
+// function redirectpage(){
+//   window.location = " C:/Users/Igwe Peter/Desktop/SAT MOCK TEST SITE/Instruction pages/after reading/writing_instructions.html"
+// }
+// setTimeout("redirectpage()", 3902000)
+
+
+
+
 /*function noReturn() {
   if (localStorage.getItem("visited")) {
-    window.location.href = "C:/Users/Igwe Peter/Desktop/SAT MOCK TEST SITE/instruction pages/after MathsNoCalc/mathsCalc_instructions.html"
+    window.location.href = "C:/Users/Igwe Peter/Desktop/SAT MOCK TEST SITE/instruction pages/after reading/writing_instructions.html"
   }
   localStorage.setItem("visited", "true");  
 }
 
-setTimeout("noReturn()", 1502000);*/
+setTimeout("noReturn()", 3902000);*/
 
 
 
 
-  
-  //    // Restricts input for the given textbox to the given inputFilter function.
+
+ //    // Restricts input for the given textbox to the given inputFilter function.
   //    function setInputFilter(textbox, inputFilter, errMsg) {
   //     ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop", "focusout"].forEach(function(event) {
   //         textbox.addEventListener(event, function(e) {
@@ -102,3 +122,7 @@ setTimeout("noReturn()", 1502000);*/
   //     return /^\d*\.?\d*$/.test(value); // Allow Positive digits and '.' only, using a RegExp
   // }, "Only Positive numbers are allowed!");
   
+
+
+
+
