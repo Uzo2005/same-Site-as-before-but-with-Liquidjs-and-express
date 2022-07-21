@@ -1,4 +1,4 @@
-const minutes = 10
+const minutes = 2
 let time = minutes * 60
 
 const countdown = document.getElementById('mins');
