@@ -801,7 +801,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _san
   \***********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const sanityClient = __webpack_require__(/*! @sanity/client */ \"./node_modules/@sanity/client/lib/sanityClient.js\")\r\n        const client = sanityClient({\r\n        projectId: '6hgz95se',\r\n        dataset: 'production',\r\n        apiVersion: '2021-10-21', // use current UTC date - see \"specifying API version\"!\r\n        // token: 'sanity-auth-token', // or leave blank for unauthenticated usage\r\n        useCdn: false, // `false` if you want to ensure fresh data\r\n        });\r\n\r\nmodule.exports = client       \n\n//# sourceURL=webpack://sat-mock-test-site/./public/js/sanityClient.js?");
+eval("const sanityClient = __webpack_require__(/*! @sanity/client */ \"./node_modules/@sanity/client/lib/sanityClient.js\")\r\n        const client = sanityClient({\r\n        projectId: '6hgz95se',\r\n        dataset: 'production',\r\n        apiVersion: '2021-10-21', // use current UTC date - see \"specifying API version\"!\r\n        // token: 'sanity-auth-token', // or leave blank for unauthenticated usage\r\n        useCdn: false, // `false` if you want to ensure fresh data\r\n        });\r\n\r\nmodule.exports = client      \n\n//# sourceURL=webpack://sat-mock-test-site/./public/js/sanityClient.js?");
 
 /***/ })
 

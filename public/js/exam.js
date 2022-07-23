@@ -9,46 +9,55 @@ const clock = document.getElementById('clock');
 const countdown = document.getElementById('countdown_minutes');
 const counts = document.getElementById('countdown_seconds');
 
+
+  
 //Time countdown
-setInterval(updateCountdown_minutes, 1000)
 
 function updateCountdown_minutes() {
   const minutes = Math.floor(time / 60);
   let seconds = time % 60;
-  
-
   seconds = seconds < 10 ? `0` + seconds : seconds;
-
+  
+  
   countdown.innerHTML = `${minutes}`;
+
   counts.innerHTML = `${seconds}`;
+
   time--;
-//Changing Timer Colour
+
+
+  
+  //Changing Timer Colour
   const clockBgColours = ["#80ff80","#bfff80","#dfff80","#ffff80","#ffdf80","#ff4000","#ff0000"]
   const clockIntervalDigits = []
-
+  
   for(i=1; i<clockBgColours.length-1; i++){
-    let intervals = (document.querySelector('#hidden').textContent / clockBgColours.length)*i;
-    const intervalDigit = Math.floor(document.querySelector('#hidden').textContent - intervals);
+    let intervals = (document.querySelector('.maxTime').textContent / clockBgColours.length)*i;
+    const intervalDigit = Math.floor(document.querySelector('.maxTime').textContent - intervals);
     
     clockIntervalDigits.push(intervalDigit)
   }
+  
   for(i=0; i<clockIntervalDigits.length; i++){
    if(minutes === clockIntervalDigits[i]){
     clock.style.background = clockBgColours[i]
    }
   }
-  
-
-  
-  
   //Trying to write a better redirect page code:)
-    if(minutes==0 && seconds==0){
-      window.location = "../../instruction pages/after reading/writing_instructions.html"
+  
+    const Redirect = document.querySelector('.redirect').textContent;
+    if(minutes===0 && seconds===0){
+      window.location.href = Redirect;
     }
-
 }
+setInterval(updateCountdown_minutes, 1000);
 
+  
+  
+  
+  
 
+//Code for modals and dialog
 const modal      = document.querySelector("#modal");
 const openModal  = document.querySelector(".skip");
 const closeModal = document.querySelector(".no");
@@ -60,8 +69,18 @@ closeModal.addEventListener('click', () => {
   modal.close();
 })
 
-
-
+//RESIZE THE PASSAGE SECTION TO SEE PASSAGES PROPERLY
+// const resizer = () => {
+//   const passageSection = document.querySelector('.reading_section');
+//   const resizeArrayForward = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+//    const resizeArrayBackward = -1*(...resizeArrayForward)
+//   //when(the resize button is dragged){
+//     //for(each drag[i]){
+//       //set(passageSection.style.gridTemplateColumns) == `${resizeArray[i]}fr ${1}fr`
+//     //}
+//   //}
+//   // passageSection.style.gridTemplateColumns = `${resizeArray[i]}fr ${1}fr`
+// }
 
 
 

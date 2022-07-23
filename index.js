@@ -1,17 +1,12 @@
 require('dotenv').config()
 const express = require('express');
-const path = require('path');
 const app = express();
+const routes = require('./router/routes')
 
 
-app.use(express.static(path.join(__dirname,'/public')));
+app.use(routes)
 
-app.get('/', (req, res) => {
-    // if(sessionIsSet) {
-    //     res.render(path.join(__dirname, '/public', 'login.html'))
-    // }
-    res.render(path.join(__dirname, '/public', 'index.html'))
-});
+
 
 
 

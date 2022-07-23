@@ -223,6 +223,6 @@ body{
     background-color: skyblue;
 }
 
-#hidden {
+.hidden {
     display: none;
 }
