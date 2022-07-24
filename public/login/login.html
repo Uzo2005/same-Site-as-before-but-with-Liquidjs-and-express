@@ -11,16 +11,16 @@
 <body>
 
     <!--STUDENT FORM-->
-    <form  action="/generalInstructions">
+    <form  action="/dashboard" method="post"> <!--action="/generalInstructions"-->
         <div class="form">
             <div class="logo">
                 <img class="form_logo" src="../images/coffee logo.jpg" alt="coffee logo" title="You want some, huh? :)">
             </div>
-            <div class="form_title">STUDENT INFO</div>
+            <div class="form_title">Login</div>
             <div class="form_subtitle">Input Your Name And The Email Your Scores Would Be Sent To.</div>
             <div class="info">
-                <div><input type="text" class="name" placeholder="Name" required></div>
-                <div><input type="password" class="password" placeholder="Password" required></div>
+                <div><input type="text" class="studentName" placeholder="Name" name="studentName" required></div>
+                <div><input type="password" class="studentPassword" placeholder="Password" name="studentPassword" required></div>
                 <div><input id="lets_go" type="submit" value="TAKE THE SAT!"></div>
             </div>
         </div>

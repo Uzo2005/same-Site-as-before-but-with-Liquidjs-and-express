@@ -7,8 +7,12 @@ const routes    = require('./public/routes/routes')
 
 //serving the static files
 app.use(express.static(path.join(__dirname,'./public')));
+
+//routes
 app.use(routes);
 
+//bodyParser
+app.use(express.urlencoded( {extended: true }));
 
 
 

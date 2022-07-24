@@ -42,10 +42,10 @@ body{
 .form .form_title{
     font-size: 28px;
     font-weight: 600;
-    color: black;
+    color: rgb(80, 80, 241);
     text-align: center;
     margin-top: 90px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     letter-spacing: 0.5px;
     padding-top: 24px;
     user-select: none;
@@ -54,9 +54,9 @@ body{
     text-align: center;
     font-size: 10px;
     font-weight: 700;
-    color: steelblue;
-    padding-top: 7px;
-    margin-bottom: 20px;
+    color: rgb(248, 104, 104);
+    padding-top: 5px;
+    margin-bottom: 15px;
     letter-spacing: 0.5px;
     user-select: none;
 } 
@@ -72,7 +72,7 @@ body{
     color: #555;
     padding: 20px 10px 20px 5px;
 }
-.name,.email,.password{
+.studentName,.email,.studentPassword{
     width: 100%;
     margin-bottom: 30px;
     border-radius: 25px;
@@ -85,7 +85,7 @@ body{
 ::placeholder{
     font-size: 15px;
     font-weight: 700;
-    color: steelblue;
+    color: rgb(80, 80, 241);
     text-align: center;
 }
 #lets_go{

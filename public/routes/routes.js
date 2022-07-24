@@ -7,6 +7,7 @@ const router    = express.Router();
 
 //Calling all my routes
 const login                     = require('./login');
+const dashboard                 = require('./userDashboard')
 const generalInstructions       = require('./generalInstructions');
 const reading                   = require('./reading');
 const writingInstructions       = require('./writingInstructions');
@@ -28,6 +29,7 @@ const end                       = require('./end');
     //Initialising my routes
     app.use(router);
     app.use(login);
+    app.use(dashboard)
     app.use(generalInstructions);
     app.use(reading);
     app.use(writingInstructions);
