@@ -16,7 +16,7 @@ body{
 
 /*FORM STYLING*/
 
-.form{
+.registerForm{
     contain: content;
     padding: 20px;
     border-radius: 40px;
@@ -24,8 +24,18 @@ body{
     box-shadow: 13px 13px 20px lightsteelblue,
     -13px -13px 20px lightsteelblue;
 }
+.loginForm{
+    contain: content;
+    height: 80%;
+    padding: 40px 40px 40px 40px;
+    border-radius: 40px;
+    background-color: lightgray;
+    box-shadow: 13px 13px 20px lightsteelblue,
+    -13px -13px 20px lightsteelblue;
+}
 
-.form .form_logo{
+
+.form_logo{
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -35,7 +45,7 @@ body{
     contain: content;
     user-select: none;
 }
-.form .form_title{
+.form_title{
     font-size: 28px;
     font-weight: 600;
     color: rgb(80, 80, 241);
@@ -46,7 +56,7 @@ body{
     padding-top: 24px;
     user-select: none;
 }
-.form .form_subtitle{
+.form_subtitle{
     text-align: center;
     font-size: 10px;
     font-weight: 700;
@@ -103,7 +113,7 @@ body{
 }
 #lets_go:hover{
     background-color: lightskyblue;
-    color: steelblue;
+    color: black;
 }
 /* #lets_go:active{
     background-color: skyblue;

@@ -29,7 +29,7 @@ const end                       = require('./end');
     //Initialising my routes
     app.use(router);
     app.use(login);
-    app.use(dashboard)
+    app.use(dashboard);
     app.use(generalInstructions);
     app.use(reading);
     app.use(writingInstructions);

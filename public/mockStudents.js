@@ -3,31 +3,31 @@ const members = [
         id: 1,
         name: 'Igwe Cletus',
         email: 'igwecletus455@gmail.com',
-        status: 'active',
+        password: 'secret',
     },
     {
         id: 2,
         name: 'Alih Uche',
         email: 'uchemicheal@gmail.com',
-        status: 'active',
+        password: 'secret',
     },
     {
         id: 3,
         name: 'Tyowase Collins',
         email: 'smallCollins@gmail.com',
-        status: 'dormant',
+        password: 'secret',
     },
     {
         id: 4,
         name: 'Enweani Nelson',
-        email: 'NelsonTeeboi@gmail.com',
-        status: 'Inactive',
+        email: 'nelsonTeeboi@gmail.com',
+        password: 'secret',
     },
     {
         id: 5,
         name: 'Igwe Akachukwu',
         email: 'akarabuns@gmail.com',
-        status: 'Hyperactive',
+        password: 'secret',
     }
 ];
 
