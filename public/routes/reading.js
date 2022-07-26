@@ -3,7 +3,7 @@ const path      = require('path');
 const router    = express.Router();
 
 const reading = router.get('/reading', (req, res) => {
-    res.sendFile(path.join(__dirname, '../English', 'reading.html'))
+    res.render('reading', )
 });
 
 module.exports = reading;

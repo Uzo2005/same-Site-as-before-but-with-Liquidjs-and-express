@@ -6,13 +6,6 @@ const app       = express();
 const routes    = require('./public/routes/routes')
 
 
-const { Liquid } = require('liquidjs');
-const engine = new Liquid();
-
-// register liquid engine
-app.engine('liquid', engine.express()); 
-app.set('views', './views');            // specify the views directory
-app.set('view engine', 'liquid');       // set liquid to default
 
 //serving the static files
 app.use(express.static(path.join(__dirname,'./public')));

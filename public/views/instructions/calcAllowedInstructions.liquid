@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="../styles/instructions.css">
-    <title>EducationUSAabuja  SAT Mocktest</title>
-</head>
+{%assign title = 'EducationUSAabuja SAT Mocktest'%}
+{%assign styleSheet = '../styles/instructions.css' %}
+{%render 'partials/header.liquid',title: title, styleSheet: styleSheet%}
+
 <body>
     <div class="instructions-box">
         <!--THE INSTRUCTIONS PAGE-->
@@ -32,12 +27,13 @@
         </div>
     </div>
 
-    <dialog id="modal" class="modal">
-        <span class="prompt">Are you sure you want to start the Timer?</span>
-        <button class="no">Not yet</button>
-        <a href="/calcAllowed"><button class="yes">Am Sure!</button></a>
-        
-    </dialog>
+    {%assign nextSection = '/calcAllowed'%}
+    {%assign prompt = 'Are you sure you want to start the Timer?'%}
+    {%assign no = 'Not yet' %}
+    {%assign yes = 'Am Sure!'%}
+    {%render '../partials/dialogue.liquid', nextSection: nextSection, prompt: prompt, no: no, yes: yes %}
+
+    
 
     <script src="../../js/instructions.js"></script>
 </body>

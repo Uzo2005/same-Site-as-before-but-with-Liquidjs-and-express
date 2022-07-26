@@ -1,8 +1,8 @@
 {
   "name": "sat-mock-test-site",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Practice For SAT As An EdUSAabuja Member",
+  "private": true,
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",

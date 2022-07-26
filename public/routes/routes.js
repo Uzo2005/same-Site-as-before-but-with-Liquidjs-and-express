@@ -23,7 +23,14 @@ const end                       = require('./end');
  app.use(express.static(path.join(__dirname,'../styles')));
  app.use(express.static(path.join(__dirname,'../images')));
 
- 
+const { Liquid } = require('liquidjs');
+const engine = new Liquid();
+
+// register liquid engine
+app.engine('liquid', engine.express()); 
+app.set('views', path.join(__dirname,'../views'));            // specify the views directory
+app.set('view engine', 'liquid');       // set liquid to default
+
     const routes = 
 
     //Initialising my routes
@@ -50,7 +57,7 @@ const end                       = require('./end');
         // if(sessionIsSet) {
             //     res.render(path.join(__dirname, '/public', 'login.html'))
             // }
-            res.sendFile(path.join(__dirname, '../login', 'register.html'))
+            res.render('register')
         });
         
 

@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="../styles/end.css">
-    <title>EducationUSAabuja SAT Mocktest</title>
-</head>
+{%assign title = 'EducationUSAabuja SAT Mocktest'%}
+{%assign styleSheet = '../styles/end.css' %}
+{%render 'partials/header.liquid',title: title, styleSheet: styleSheet%}
 <body>
     <div class="break">
         <span class="congrats">Congratulations!, You Have Successfully Completed The English Section Of This MockTest <span class="ticks">✔✔</span>.</span><br>
@@ -40,11 +34,12 @@
         </div>
     </dialog>
 
-    <dialog id="modal" class="modal">
-        <span class="prompt">You dont need a Break?</span>
-        <button class="no">I need this Break!</button>
-        <a href="/noCalcInstructions"><button class="yes">I don't need a Break</button></a>
-    </dialog>    
+    {%assign nextSection = '/noCalcInstructions'%}
+    {%assign prompt = 'You dont need a Break?'%}
+    {%assign no = 'I need this Break!' %}
+    {%assign yes = "I don't need a Break"%}
+    {%render '../partials/dialogue.liquid', nextSection: nextSection, prompt: prompt, no: no, yes: yes %}
+
     
 
 </body> 

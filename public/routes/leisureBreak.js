@@ -3,7 +3,7 @@ const path      = require('path');
 const router    = express.Router();
 
 const leisureBreak = router.get('/leisureBreak', (req, res) => {
-    res.sendFile(path.join(__dirname, '../instruction pages', 'leisureBreak.html'))
+    res.render('instructions/leisureBreak')
 });
 
 module.exports = leisureBreak;
