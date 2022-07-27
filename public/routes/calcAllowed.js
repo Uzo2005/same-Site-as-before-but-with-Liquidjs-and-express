@@ -4,7 +4,14 @@ const app       = express();
 const router    = express.Router();
 
 
-const calcAllowed = router.get('/calcAllowed', (req, res) => {
+const checkAunthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+    res.redirect('/')
+}
+
+const calcAllowed = router.get('/calcAllowed', checkAunthenticated, (req, res) => {
     res.render('calcAllowed.liquid')
 });
 

@@ -2,11 +2,22 @@ const express       = require('express');
 const app           = express();
 const path          = require('path');
 const router        = express.Router();
-const members       = require('../mockStudents')
+const methodOverride = require('method-override');
+
+
+// const members       = require('../mockStudents')
 
 router.use(express.json());
 router.use(express.urlencoded( {extended: true }));
+router.use(methodOverride('_method'))
 
+
+const checkAunthenticated = (req, res, next) => {
+   if (req.isAuthenticated()) {
+       return next()
+   }
+   res.redirect('/')
+}
 
 
 const dashboard = 
@@ -73,11 +84,16 @@ const dashboard =
           
         //  })
     
-         router.get('/dashboard', (req,res) => {
-          
+         router.get('/dashboard',checkAunthenticated, (req,res) => {
+            
+         
             res.render('dashboard', {name: req.user.name})
             
          })
+         router.delete('/logout',checkAunthenticated, (req, res) => {
+            req.logout({keepSessionInfo: true}, (err) => {if(err){console.error(err)}} )
+            res.redirect('/login')
+        })
     
 
 module.exports = dashboard;

@@ -3,19 +3,18 @@
 {%render 'partials/header.liquid',title: title, styleSheet: styleSheet %}
 <body>
 
-    <main class="w3-section ">
-        <h2 class="w3-center w3-blue w3-header"><span class="w3-text-white welcome">Welcome, {{name}}.</span></h2>
+    <main>
+        <h2 class="w3-center  w3-blue w3-header"><span class="w3-text-white welcome">Welcome, {{name}}.</span></h2>
         <h4 class="w3-center w3-margin w3-panel w3-pale-green w3-leftbar w3-rightbar w3-padding w3-border-green w3-border">Choose A Practice Test Below</h4>
         <ul class="w3-ul w3-margin  w3-leftbar w3-center w3-border w3-hoverable w3-padding-large w3-large w3-border-blue  w3-round-large">
-            {%render 'partials/choosePracticeTest.liquid'%}
-            {%render 'partials/choosePracticeTest.liquid'%}
+            
             {%render 'partials/choosePracticeTest.liquid'%}
             
         </ul>
        
     </main>
-    <form  class="w3-button w3-red" action="/logout?_method=DELETE" method="POST">
-        <button>Logout</button>
+    <form class="w3-display-topright" action="/logout?_method=DELETE" method="POST">
+        <button  class="w3-button w3-red w3-round w3-margin w3-hover-opacity" >Logout</button>
     </form>
 </body>
 </html>
