@@ -2,9 +2,11 @@
 {%assign styleSheet = '../styles/form.css' %}
 {%render 'partials/header.liquid',title: title, styleSheet: styleSheet%}
 <body>
-
+{%if messages.error%}
+{%render messages.error%}
+{%endif%}
     <!--STUDENT FORM-->
-    <form  action="/dashboard" method="post"> <!--action="/generalInstructions"-->
+    <form  action="/login/auth" method="post"> <!--action="/generalInstructions"-->
         <div class="loginForm">
             <div class="logo">
                 <img class="form_logo" src="../images/official logo.jpg" alt="coffee logo" title="You want some, huh? :)">

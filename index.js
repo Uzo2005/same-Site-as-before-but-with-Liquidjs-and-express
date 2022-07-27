@@ -4,6 +4,8 @@ const path      = require('path');
 const express   = require('express');
 const app       = express();
 const routes    = require('./public/routes/routes')
+const methodOverride = require('./method-override')
+
 
 
 
@@ -15,12 +17,25 @@ app.use(routes);
 
 //bodyParser
 app.use(express.urlencoded( {extended: true }));
-
-// app.get('/liquid', (req,res)=> {
-//     res.render('login')
-// })
+app.use(methodOverride('_method'))
 
 
+const checkAunthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+    res.redirect('/login')
+}
+const checkNotAunthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return res.redirect('/dashboard')
+    }
+    next()
+}
+app.delete('/logout', (req, res) => {
+    req.logout()
+    res.redirect('/login')
+})
 
 //setting the ports
 const PORT  = process.env.PORT || 2022;

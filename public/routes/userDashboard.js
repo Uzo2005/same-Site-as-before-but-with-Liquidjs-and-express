@@ -44,37 +44,38 @@ const dashboard =
         
         
         // });
-         router.post('/dashboard/', (req,res) => {
+        //  router.post('/dashboard/', (req,res) => {
 
-            const student = {
-                name: req.body.studentName,
-                password: req.body.studentPassword,
-                }
-
-            
-            
-
-            if(!student.password) {
-                    return res.status(400).json({msg: 'Please Include a password'});
-            }
-            if(!student.name) {
-                return res.status(400).json({msg: 'Please Include a Name'});
-            }
+        //     const student = {
+        //         name: req.body.studentName,
+        //         password: req.body.studentPassword,
+        //         }
 
             
+            
 
-            const foundName = members.some(member => member.name === student.name)
-            const matchedPassword = members.some(member => member.password === student.password)
-            if(foundName && matchedPassword) {
-              return res.render('dashboard', {name: student.name})
-            }
+        //     if(!student.password) {
+        //             return res.status(400).json({msg: 'Please Include a password'});
+        //     }
+        //     if(!student.name) {
+        //         return res.status(400).json({msg: 'Please Include a Name'});
+        //     }
 
-            res.status(400).json({msg: `Wrong Login Details because Name:${foundName} and Password:${matchedPassword}`})
+            
+
+        //     const foundName = members.some(member => member.name === student.name)
+        //     const matchedPassword = members.some(member => member.password === student.password)
+        //     if(foundName && matchedPassword) {
+        //       return res.render('dashboard', {name: student.name})
+        //     }
+
+        //     res.status(400).json({msg: `Wrong Login Details because Name:${foundName} and Password:${matchedPassword}`})
           
-         })
+        //  })
     
          router.get('/dashboard', (req,res) => {
-            res.render('dashboard')
+          
+            res.render('dashboard', {name: req.user.name})
             
          })
     

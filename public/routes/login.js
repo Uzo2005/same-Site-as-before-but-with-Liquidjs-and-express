@@ -4,7 +4,8 @@ const path          = require('path');
 const router        = express.Router();
 
 
-
+router.use(express.json());
+router.use(express.urlencoded( {extended: true }));
 
 
 
@@ -14,7 +15,7 @@ const login =
         res.render('login')
     });
     
-
+    
     
     
 module.exports = login;
