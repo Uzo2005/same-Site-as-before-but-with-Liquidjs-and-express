@@ -12,6 +12,11 @@ const checkAunthenticated = (req, res, next) => {
 }
 
 const reading = router.get('/reading',checkAunthenticated, (req, res) => {
+    /**
+     * reading would be passed the query.reading string from general instructions
+     * then client.fetch(query.reading){
+     * then for each passage returned, carry out pagination}
+     */
     console.log(req.session)
     res.render('reading')
 });

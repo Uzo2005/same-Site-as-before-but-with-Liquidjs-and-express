@@ -1,6 +1,7 @@
 {%assign title = 'EducationUSAabuja SAT Mocktest'%}
 {%assign styleSheet = '../styles/form.css' %}
-{%render 'partials/header.liquid',title: title, styleSheet: styleSheet%}
+{%assign styleSheet2 = '../styles/w3.css' %}
+{%render 'partials/header.liquid',title: title,styleSheet2: styleSheet2, styleSheet: styleSheet %}
 <body>
 
     <!--STUDENT FORM-->
@@ -10,6 +11,13 @@
                 <img class="form_logo" src="../images/official logo.jpg" alt="coffee logo" title="Comrade, Welcome!!">
             </div>
             <div class="form_title">Register</div>
+            {%if messages.error%}
+            <div class="w3-panel w3-red w3-display-container">
+                <span onclick="this.parentElement.style.display='none'"
+                class="w3-button w3-xlarge w3-display-topright">&times;</span>
+                <h3>{{messages.error}}</h3>
+              </div>
+            {%endif%}
             
             <div class="form_subtitle">Input Your Name And The Email EducationUSAabuja Identifies You With.</div>
             <div class="info">

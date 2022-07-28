@@ -1,4 +1,4 @@
-import {client} from '../../js/sanityClient'
+const client = require('./sanityClient')
 // const client = require('../../js/sanityClient')
 ///<reference lib = "dom"/>
 
@@ -7,6 +7,7 @@ const questionQuery = '*[_type == "reading"]{passage1{questions}}'
 client.fetch(questionQuery)
 .then((res) => {
         const questionOptionObject = res[0].passage1.questions
+        console.log(questionOptionObject)
         return questionOptionObject
 
         //I will use a for loop here which will transverse the whole question object array returned above 

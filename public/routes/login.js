@@ -7,6 +7,9 @@ const passport = require('passport')
 // const session   = require('express-session')
 // const flash     = require('express-flash')
 const users = require('../mockStudents')
+/**
+ * Users = client.fetch(all educationUsa members: names, email and passwords)
+ */
 
 // router.use(express.json());
 // router.use(express.urlencoded( {extended: true }));

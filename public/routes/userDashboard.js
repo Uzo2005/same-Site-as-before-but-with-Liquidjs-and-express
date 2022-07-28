@@ -85,7 +85,14 @@ const dashboard =
         //  })
     
          router.get('/dashboard',checkAunthenticated, (req,res) => {
-            
+            /**
+             * client.fetch(all available tests).
+             * foreach(test){
+             * display them in those links}
+             * where each was a button which when clicked makes the query to become the test identifier for that test
+             * The function the button will carry out will render the genral instructions page and pass down the queries object
+             * A query object constains queries for each test and then every route would have to handle its pagination
+             */
          
             res.render('dashboard', {name: req.user.name})
             

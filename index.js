@@ -52,5 +52,10 @@ app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 //   })
 
 /**
- * I am server side rendering in liqiud this night and moving to the sanity api calls tomorrow
+ * On the dashboard each link would invoke a different query
+ * every query specifies a test to be taken
+ * when the test is being taken, every completed test is marked and result stored in the user's sanity document
+ * when all tests are completed, then the users scores are downloaded back
+ * and the appropriate  calculations would be made to show the sat score
+ * the user can then go back to dashboard
  */
