@@ -1,12 +1,46 @@
 {%assign title = 'EducationUSAabuja SAT Mocktest'%}
 {%assign styleSheet = '../styles/exam.css' %}
-{%render 'partials/header.liquid',title: title, styleSheet: styleSheet%}
+{%render 'partials/header.liquid',title: title, styleSheet: styleSheet, styleSheet2: styleSheet2%}
+
 
 {%assign nextSection = '/writingInstructions'%}
 {%assign examTime = 65 %}
 {%assign nextSectionText = 'Skip to the Writing section' %}
-{%assign nextPagination = '11 - 20' %}<!--The Proper place to set this is in the route section-->
-{%render 'partials/examBody.liquid',nextSection: nextSection, examTime: examTime, nextSectionText: nextSectionText, nextPagination: nextPagination%}
+{%render 'partials/examHeader.liquid',nextSection: nextSection, examTime: examTime, nextSectionText: nextSectionText%}
+
+
+
+<div class="reading_section">
+        <div class="passage_section">
+            <section class="passages">
+                {%for url in imageUrls%}
+                    <img src="{{url}}">
+                {%endfor%}
+            
+            </section>
+        </div>
+        <div class="question_section">
+            <section  class="questions"></section>
+        </div>
+</div>
+
+
+
+
+
+
+<div class="footer_section">
+        <footer>
+        {%if previousPagination %}
+            <form action="{{previousPassageUrl}}" method="post" class="navForm"><button type="submit">Back to <span> {{previousPagination}} </span></button></form>
+        {%endif%}
+        {%if nextPagination %}
+            <form action="{{nextPassageUrl}}" method="post" class="navForm"><button type="submit">Move to <span> {{nextPagination}} </span></button></form>
+        {%endif%}
+        
+
+        </footer>
+</div>
 
 {%assign nextSection = '/writingInstructions'%}
 {%assign prompt = 'Are you sure you want to skip this section?'%}
@@ -15,8 +49,10 @@
 {%render 'partials/dialogue.liquid', nextSection: nextSection, prompt: prompt, no: no, yes: yes %}
 
 
+
+
    
     <script src="../../js/exam.js"></script>
-    <script src="../../dist/reading.js"></script>
+   
 </body>
 </html>

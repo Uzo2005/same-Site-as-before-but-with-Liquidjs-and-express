@@ -1,18 +1,25 @@
 const client = require('./sanityClient');
 
-const query  = "*[testIdentifier == 'Practice']"
+const query  = "*[_type == 'satExams']"
 
-const getAllTests =
-
+const getAllTestIds =
+ 
 client.fetch(query)
-.then((res) => {
-    for(i=0; i<res.length; i++){
-        const id = res[i].mockTest
-        console.log(id)
+.then((tests) => {
+    const info = []
+    for (i= 0; i < tests.length; i++){
+        
+        info.push({
+             idText: tests[i].testIdentifier,
+             id    : tests[i]._id
+        })
+
+        
+      
     }
-    
+    return info
 })  
 
 
 
-// module.exports = getAllTests
+module.exports = getAllTestIds

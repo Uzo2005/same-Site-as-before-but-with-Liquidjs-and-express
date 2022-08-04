@@ -18,12 +18,28 @@ function updateCountdown_minutes() {
   let seconds = time % 60;
   seconds = seconds < 10 ? `0` + seconds : seconds;
   
+  // if ((minutes) > 0) {
+  //   window.sessionStorage.setItem("minutes", minutes);
+  //   window.sessionStorage.setItem("seconds", seconds);
+  // } else {
+  //   window.sessionStorage.removeItem("minutes");
+  // }
+
+  // window.onload = function() {
+  //  const storedMinutes = window.sessionStorage.getItem("minutes") || 65;
+  //  const storedSeconds = window.sessionStorage.getItem("seconds") || 0;
+    
+  // };
   
   countdown.innerHTML = `${minutes}`;
 
   counts.innerHTML = `${seconds}`;
+  
+  
 
   time--;
+
+  
 
 
   
@@ -68,6 +84,24 @@ openModal.addEventListener('click', () => {
 closeModal.addEventListener('click', () => {
   modal.close();
 })
+
+const navForm = document.querySelector('.navForm');
+const to = navForm.action
+navForm.addEventListener('submit', (e) =>{
+  e.preventDefault()
+  
+  return fetch(to, {method: 'get'})
+  .catch((err) => {
+    console.log(err)
+  })
+})
+
+
+
+
+
+
+
 
 //RESIZE THE PASSAGE SECTION TO SEE PASSAGES PROPERLY
 // const resizer = () => {

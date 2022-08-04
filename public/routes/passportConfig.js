@@ -4,6 +4,9 @@ const bcrypt        = require('bcrypt')
 const initialize =  (passport, getUserByName) => {
     const authenticateUser = async (studentName, studentPassword, done) => {
         const user = getUserByName(studentName)
+       /**
+        * const user = async getUserByName(studentName)
+        *  */ 
         // console.log(user)
         
         if(typeof(user) == 'undefined'){

@@ -7,8 +7,9 @@ const passport = require('passport')
 // const session   = require('express-session')
 // const flash     = require('express-flash')
 const users = require('../mockStudents')
+
 /**
- * Users = client.fetch(all educationUsa members: names, email and passwords)
+ * const client = require('../../api/sanityClient')
  */
 
 // router.use(express.json());
@@ -38,6 +39,18 @@ const login =
     initializePassport(
         passport, 
         name =>  users.find(user => user.name == name),
+        /**
+         * (name) => {
+         * client.fetch('*[_type == students && nameofStudent == '${name}']')
+         * .then((res)=> {
+         * const student = {
+         * name: res.nameOfStudent,
+         * email: res.emailOfStudent,
+         * password: res.hashedPassword
+         * }
+         * return student
+         * })}
+         */
         
     )
     router.post('/login', passport.authenticate('local', {

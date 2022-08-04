@@ -1,7 +1,8 @@
 const express   = require('express');
 const router    = express.Router();
 const bcrypt = require('bcrypt')
-const flash   = require('express-flash')
+const flash   = require('express-flash');
+// const sanityClient = require('../../api/sanityClient')
 
 
 const users = require('../mockStudents')//This will contain the array of students name and email from sanity
@@ -23,14 +24,23 @@ router.post('/register', async (req, res) => {
             email: req.body.studentEmail,
             password: hashedPassword
         }
-        /**
-         * client.create(newStudent)
-         * .then(add to type of EducationUSA students)
-         */
+        
         if(!newStudent.name || !newStudent.email || !newStudent.password || req.body.studentPassword1 != req.body.studentPassword2) {
             
             throw new Error();
         }
+
+        /**
+         * await sanityClient.create({
+         * type: 'students',
+         * fields:[
+         * {nameOfStudent: `${newStudent.name}`},
+         * {emailOfStudent: `${newStudent.email}`},
+         * {hashedPassword: `${newStudent.password}`}
+         * 
+         * ]
+         * })
+         */
             
         users.push(newStudent)
             
@@ -44,3 +54,8 @@ router.post('/register', async (req, res) => {
        
 });
 module.exports = register
+
+
+/**
+ * To prevent users from going back, I will make sure that the referrrer for each route is the previous one
+ */

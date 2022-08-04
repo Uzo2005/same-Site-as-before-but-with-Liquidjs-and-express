@@ -3,6 +3,15 @@ const app           = express();
 const path          = require('path');
 const router        = express.Router();
 const methodOverride = require('method-override');
+const allTestInfo     = require('../../api/getAllTests')
+
+
+
+
+
+
+
+// const users = require('../mockStudents')
 
 
 // const members       = require('../mockStudents')
@@ -21,7 +30,35 @@ const checkAunthenticated = (req, res, next) => {
 
 
 const dashboard = 
+    
+         router.get('/dashboard',checkAunthenticated, (req,res) => {
+            /**
+             * client.fetch(all available tests).
+             * foreach(test){
+             * display them in those links}
+             * where each was a button which when clicked makes the query to become the test identifier for that test
+             * The function the button will carry out will render the genral instructions page and pass down the queries object
+             * A query object constains queries for each test and then every route would have to handle its pagination
+             */
             
+            res.render('dashboard', {name: req.user.name,testInfo: allTestInfo })
+        
+            
+         })
+         router.delete('/logout',checkAunthenticated, (req, res) => {
+            req.logout({keepSessionInfo: true}, (err) => {if(err){console.error(err)}} )
+            res.redirect('/login')
+        })
+    
+
+module.exports = dashboard;
+
+
+
+
+
+
+        
         // router.post('/dashboard', (req, res) => {
         
 
@@ -83,24 +120,3 @@ const dashboard =
         //     res.status(400).json({msg: `Wrong Login Details because Name:${foundName} and Password:${matchedPassword}`})
           
         //  })
-    
-         router.get('/dashboard',checkAunthenticated, (req,res) => {
-            /**
-             * client.fetch(all available tests).
-             * foreach(test){
-             * display them in those links}
-             * where each was a button which when clicked makes the query to become the test identifier for that test
-             * The function the button will carry out will render the genral instructions page and pass down the queries object
-             * A query object constains queries for each test and then every route would have to handle its pagination
-             */
-         
-            res.render('dashboard', {name: req.user.name})
-            
-         })
-         router.delete('/logout',checkAunthenticated, (req, res) => {
-            req.logout({keepSessionInfo: true}, (err) => {if(err){console.error(err)}} )
-            res.redirect('/login')
-        })
-    
-
-module.exports = dashboard;

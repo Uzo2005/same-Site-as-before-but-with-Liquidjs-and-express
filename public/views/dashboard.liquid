@@ -1,14 +1,36 @@
 {%assign title = "'s Dashboard" | prepend: name %}
 {%assign styleSheet = '../../styles/w3.css' %}
 {%render 'partials/header.liquid',title: title, styleSheet: styleSheet %}
+<script src = 'https://unpkg.com/cookiejs@2.1.1/dist/cookie.min.js'></script>
 <body>
 
     <main>
         <h2 class="w3-center  w3-blue w3-header"><span class="w3-text-white welcome">Welcome, {{name}}.</span></h2>
         <h4 class="w3-center w3-margin w3-panel w3-pale-green w3-leftbar w3-rightbar w3-padding w3-border-green w3-border">Choose A Practice Test Below</h4>
         <ul class="w3-ul w3-margin  w3-leftbar w3-center w3-border w3-hoverable w3-padding-large w3-large w3-border-blue  w3-round-large">
+            {% for i in testInfo %}
+                <form action= "/generalInstructions" method= "post">
+
+                    <li>
+                        <input type="hidden" value="{{i.id}}" name="examId" />
+                        
+                        <button class="w3-button w3-block w3-hover-light-green btnClick" type="submit">
+
+                            <span class="w3-padding ">{{i.idText}}</span>
+
+                        </button>
+                        
+                    
+                    </li>
+
+                </form>
+
+
+            {% endfor %}
+                        
+                    
+                
             
-            {%render 'partials/choosePracticeTest.liquid'%}
             
         </ul>
        
@@ -17,6 +39,6 @@
         <button  class="w3-button w3-red w3-round w3-margin w3-hover-opacity" >Logout</button>
     </form>
 
-  
+
 </body>
 </html>
